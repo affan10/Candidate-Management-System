@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if candidates %}
+<h1>Search Results</h1>
+<div class="articles">
+    {% for candidate in candidates %}
+    <div class="article">
+        <a href="{% url 'candidates:candidate-detail-view' candId=candidate.id %}">
+            <h2>{{ candidate.name }}</h2>
+        </a>
+        <p>{{ candidate.email }}</p>
+        <p>{{ candidate.job_applied_to }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<h1 class="not-found">Whoops! Your Search Returned Nothing.</h1>
+{% endif %}
+{% endblock %}

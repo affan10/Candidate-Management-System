@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="article-create">
+<h3>Welcome To The Portal!</h3>
+<h3>Thank you for showing interest in our company</h3>
+<h3>Please upload your details below & we'll contact you shortly!</h3>
+<form class="site-form" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Upload" name="upload-btn-on-homepage">
+</form>
+</div>
+{% endblock %}

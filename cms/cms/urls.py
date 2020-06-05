@@ -15,13 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from candidates.views import candidates_list_view
+from candidates.views import home_view
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('candidates/', include('candidates.urls')),
-    path('', candidates_list_view, name='home-candidates-list'),
+    path('accounts/', include('accounts.urls')),
+    path('', home_view, name='home-view'),
 ]
 
 # Add this after adding STATIC_URL and STAIC_DIRS in settings.py

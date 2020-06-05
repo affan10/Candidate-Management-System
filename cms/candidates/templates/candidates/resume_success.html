@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Your Resume has been successfully uploaded!</h1>
+<h3>Thank you for showing interest in this opportunity.</h3>
+<h3>Our Recruiter(s) will contact you soon if you match our requirements.</h3>
+<a href="{% url 'home-view' %}">
+    <button class="back-button resume-success-page-btn">Home</button>
+</a>
+{% endblock %}
