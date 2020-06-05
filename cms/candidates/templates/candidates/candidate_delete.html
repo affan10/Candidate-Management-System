@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="article-create">
+    <h3>Delete Candidate {{ candidate.name }}? </h3>
+    <form method="POST" class="site-form delete-form"> {% csrf_token %}
+        <p>Are you sure you want to delete this candidate?</p>
+        <p>Name: {{ candidate.name }}</p>
+        <p>Email: {{ candidate.email }}</p>
+        <input type="submit" value="Confirm Delete" name="confirm delete"><br>
+        <button class="back-button" onclick="goBack()">Back</button>
+    </form>
+    <script>
+    function goBack() {
+        window.history.back();
+    }
+    </script>
+</div>
+{% endblock %}

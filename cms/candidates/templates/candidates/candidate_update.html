@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="article-create">
+    <h3>Update This Candidate</h3>
+    <form class="site-form" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Update">
+        <button class="back-button" onclick="goBack()">Back</button>
+    </form>
+</div>
+{% endblock %}

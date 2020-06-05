@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="article-detail">
+    <div class="article">
+        <h3>Details Of {{ candidate.name }} </h3>
+        <p>Name: {{ candidate.name }}</p>
+        <p>Email: {{ candidate.email }}</p>
+        <p>Contact Number: {{ candidate.contact }}</p>
+        <p>Job Applied To: {{ candidate.job_applied_to }}</p>
+        <p>Candidate Added On: {{ candidate.date }}</p>
+        {% if candidate.resume %}
+        <a href="{% url 'candidates:resume-download-view' candId=candidate.id %}">
+            <button class="back-button update-candidate-btn">Download Resume</button>
+        </a>
+        {% else %}
+        <p>Currently no Resume added. Click on Update Candidate Button to add Resume.</p>
+        {% endif %}
+        <a href="{% url 'candidates:candidate-update-view' candId=candidate.id %}">
+            <button class="back-button update-candidate-btn">Update Candidate</button>
+        </a>
+<!--        <form class="site-form-update-candidate" method="POST" action="{% url 'candidates:candidate-update-view' candId=candidate.id %}">-->
+<!--        {% csrf_token %}-->
+<!--        <input type="submit" value="Update Candidate" name="from update candidate btn">-->
+<!--        </form>-->
+        <a href="{% url 'candidates:candidate-delete-view' candId=candidate.id %}">
+            <button class="errorlist-delete">Delete Candidate</button>
+        </a>
+    </div>
+<!--    <form class="site-form delete-form" method="POST" action="{% url 'candidates:candidate-delete-view' candId=candidate.id %}">-->
+<!--        {% csrf_token %}-->
+<!--        <input type="submit" value="Delete Candidate">-->
+<!--    </form>-->
+</div>
+{% endblock %}

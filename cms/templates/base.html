@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CMS</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-4.4.1-dist/css/bootstrap.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div class="navbar-brand logo">
+                    <a href="{% url 'home-candidates-list' %}">
+                        <img src="{% static 'logo.png' %}">
+                    </a>
+                </div>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="{% url 'candidates:candidate-create-view' %}" class="highlight">Add Candidate</a></li>
+            </ul>
+        </div>
+        </nav>
+        <div class="wrapper">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <footer class="page-footer pt-4">
+                <div class="container-fluid text-center text-md-left upper-footer">
+                    <div class="row">
+                        <div class="col-md-2 mt-md-0 mt-3 img-div">
+                            <img class="footer-img" src="{% static 'logo.png' %}"></a>
+                        </div>
+                        <hr class="clearfix w-100 d-md-none pb-3">
+                        <div class="col-md-7 mb-md-0 mb-3">
+                            <h5 class="footer-headings">Qurbani App Task For Backend Engineer</h5>
+                            <h5 class="footer-headings">Affan Muddassir</h5>
+                        </div>
+                        <hr class="clearfix w-100 d-md-none pb-3">
+                        <div class="col-md-2 mb-md-0 mb-3">
+                            <h5 class="footer-headings">Tech Stack</h5>
+                            <p>Python 3.6.9 - Django 3.0.7</p>
+                            <p>Django REST 3.11.0</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-copyright text-center py-3">© Copyright 2020 -
+                    <script>
+                        var today = new Date();
+                        document.write(today.getFullYear());
+                    </script>
+                </div>
+        </footer>
+</body>
+</html>
