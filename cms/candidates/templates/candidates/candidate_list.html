@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h3>Welcome To Candidate Management System!</h3>
 {% if candidates %}
+<h3>Welcome To Candidate Management System!</h3>
 <div class="articles">
     {% for candidate in candidates %}
     <div class="article">
@@ -16,6 +16,7 @@
     {% endfor %}
 </div>
 {% else %}
-<h4 class="not-found">Currently there are no applicants!</h4>
+<h3 class="not-found">Welcome To Candidate Management System!</h3>
+<h4 class="try-again">Currently there are no applicants!</h4>
 {% endif %}
 {% endblock %}
