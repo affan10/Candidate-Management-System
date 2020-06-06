@@ -28,6 +28,7 @@ nav {
 }
 
 nav li {
+    margin-top: 24px;
     margin-left: 12px;
 }
 
@@ -183,7 +184,7 @@ div.wrapper h1, h3, h4, h5 {
     color: #ff5722;
     font-size: 0.9em;
     background: none;
-    margin-left: 2%;
+    margin-left: 1%;
 }
 
 .errorlist-delete:hover {

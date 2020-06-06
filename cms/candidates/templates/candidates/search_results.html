@@ -6,11 +6,12 @@
 <div class="articles">
     {% for candidate in candidates %}
     <div class="article">
-        <a href="{% url 'candidates:candidate-detail-view' candId=candidate.id %}">
-            <h2>{{ candidate.name }}</h2>
-        </a>
+        <h2>{{ candidate.name }}</h2>
         <p>{{ candidate.email }}</p>
         <p>{{ candidate.job_applied_to }}</p>
+        <a href="{% url 'candidates:candidate-detail-view' candId=candidate.id %}">
+            <button class="back-button">View Candidate</button>
+        </a>
     </div>
     {% endfor %}
 </div>

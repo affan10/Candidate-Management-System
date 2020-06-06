@@ -26,7 +26,7 @@ class CandidateModel(models.Model):
     email          = models.EmailField()
     date           = models.DateTimeField(auto_now_add=True)
     contact        = models.CharField(max_length=13, blank=True)
-    resume         = models.FileField(upload_to=rename_and_save, validators=[FileExtensionValidator(allowed_extensions=['pdf', 'doc', 'docx'])], null=True)
+    resume         = models.FileField(upload_to=rename_and_save, validators=[FileExtensionValidator(allowed_extensions=['pdf', 'docx'])], null=True)
     job_applied_to = models.CharField(max_length=100, choices=JOBS)
 
     def __str__(self):

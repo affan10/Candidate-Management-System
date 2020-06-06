@@ -13,29 +13,33 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <div class="navbar-brand logo">
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'candidates:candidate-list-view' %}">
+                        <img src="{% static 'logo.png' %}">
+                    </a>
+                    {% else %}
                     <a href="{% url 'home-view' %}">
                         <img src="{% static 'logo.png' %}">
                     </a>
+                    {% endif %}
                 </div>
             </div>
-            {% if user.is_authenticated %}
             <ul class="nav navbar-nav">
+                {% if user.is_authenticated %}
                 <li><a href="{% url 'candidates:candidate-create-view' %}" class="highlight">Add Candidate</a></li>
-                <li>
                 <form class="form-inline my-2 my-lg-0 search-form" action="{% url 'candidates:search-results' %}" method="GET">
                     <div class="active-cyan-3 active-cyan-4 mb-4">
                         <input class="form-control" type="text" placeholder="Search..." name="q" onfocus="this.placeholder=''" onblur="this.placeholder='Search...'">
                     </div>
                 </form>
-                </li>
                 <li>
                 <form class="logout-link" method="POST" action="{% url 'accounts:logout' %}"> {% csrf_token %}
                     <button type="submit" class="errorlist-delete logout">Logout</button>
                 </form>
                 </li>
                 {% else %}
-                <a href="{% url 'accounts:login' %}" class="highlight">Login</a>
-                <a href="{% url 'accounts:signup' %}" class="highlight">Signup</a>
+                <li><a href="{% url 'accounts:login' %}" class="highlight">Login</a></li>
+                <li><a href="{% url 'accounts:signup' %}" class="highlight">Signup</a></li>
                 {% endif %}
             </ul>
         </div>
