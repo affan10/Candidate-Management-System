@@ -4,11 +4,9 @@ from ..models import CandidateModel
 
 
 class CandidateSerializer(serializers.ModelSerializer):
-
-    # author_name = serializers.SerializerMethodField('get_author')
+    """
+        This serializer is responsible for serializing the Candidate Model.
+    """
     class Meta:
         model  = CandidateModel
         fields = ('id', 'name', 'email', 'date', 'contact', 'resume', 'job_applied_to')
-
-    # def get_author(self, Article):
-    #     return Article.author.username

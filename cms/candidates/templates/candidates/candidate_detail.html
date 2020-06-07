@@ -19,10 +19,6 @@
         <a href="{% url 'candidates:candidate-update-view' candId=candidate.id %}">
             <button class="back-button update-candidate-btn">Update Candidate</button>
         </a>
-<!--        <form class="site-form-update-candidate" method="POST" action="{% url 'candidates:candidate-update-view' candId=candidate.id %}">-->
-<!--        {% csrf_token %}-->
-<!--        <input type="submit" value="Update Candidate" name="from update candidate btn">-->
-<!--        </form>-->
         <a href="{% url 'candidates:candidate-delete-view' candId=candidate.id %}">
             <button class="errorlist-delete del-candidate-btn">Delete Candidate</button>
         </a>
