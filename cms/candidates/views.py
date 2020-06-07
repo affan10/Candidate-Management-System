@@ -23,7 +23,7 @@ def home_view(request):
 
 
 def candidates_list_view(request):
-    candidates = CandidateModel.objects.all().order_by('-date')
+    candidates = CandidateModel.objects.all().order_by('name')
     context = {
         'candidates': candidates
     }

@@ -23,6 +23,10 @@ urlpatterns = [
     path('candidates/', include('candidates.urls')),
     path('accounts/', include('accounts.urls')),
     path('', home_view, name='home-view'),
+
+    # REST FRAMEWORK URLs
+    path('api/candidates/', include('candidates.api.urls', 'candidates_api')),
+    path('api/accounts/', include('accounts.api.urls', 'account_signup_api')),
 ]
 
 # Add this after adding STATIC_URL and STAIC_DIRS in settings.py

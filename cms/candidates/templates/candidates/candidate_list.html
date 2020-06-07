@@ -2,7 +2,7 @@
 
 {% block content %}
 {% if candidates %}
-<h3>Welcome To Candidate Management System!</h3>
+<h3>Welcome {{ user.username }}!</h3>
 <div class="articles">
     {% for candidate in candidates %}
     <div class="article">
@@ -10,13 +10,13 @@
         <p>Email: {{ candidate.email }}</p>
         <p>Job Applied: {{ candidate.job_applied_to }}</p>
         <a href="{% url 'candidates:candidate-detail-view' candId=candidate.id %}">
-            <button class="back-button">View Candidate</button>
+            <button class="back-button view-btn">View Candidate</button>
         </a>
     </div>
     {% endfor %}
 </div>
 {% else %}
-<h3 class="not-found">Welcome To Candidate Management System!</h3>
+<h3 class="not-found">Welcome {{ user.username }}!</h3>
 <h4 class="try-again">Currently there are no applicants!</h4>
 {% endif %}
 {% endblock %}
