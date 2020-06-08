@@ -12,7 +12,7 @@ from .serializers import CandidateSerializer
 @permission_classes((IsAuthenticated,))
 class CandidateAPIView(APIView):
     """
-        - This class handles all GET / POST / PUT / DELETE requests and returns appropriate
+        - This class handles all GET / POST / PUT / DELETE / PATCH requests and returns appropriate
           responses through the Django REST Framework.
         - All methods defined below require an authenticated request i.e. User must be logged-in
           to access these methods.
@@ -74,6 +74,27 @@ class CandidateAPIView(APIView):
             return Response(status=status.HTTP_404_NOT_FOUND)
 
         serializer = CandidateSerializer(candidate, request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def patch(self, request, id):
+        """
+            This method handles PATCH or partial updates to candidates' information.
+
+            :param request: standard request object that contains details about the request received.
+            :param id: id of the candidate to be patched.
+            :return: patched candidate in case of success.
+                    - HTTP 404 Not Found Error Code in case candidate with the id requested is not found.
+                    - HTTP 400 Bad Request Error Code in case of failure.
+        """
+        try:
+            candidate = CandidateModel.objects.get(id=id)
+        except CandidateModel.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        serializer = CandidateSerializer(candidate, request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)

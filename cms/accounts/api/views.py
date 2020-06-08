@@ -10,8 +10,17 @@ from .serializers import SignupSerializer
 @authentication_classes([])
 @permission_classes([])
 class SignupAPIView(APIView):
-
+    """
+        This class handles user requests to signup to the system and become an admin user.
+    """
     def post(self, request):
+        """
+            This method handles requests for users to signup.
+
+            :param request: standard request object that contains details about the request received.
+            :return: the newly created username and auth_token in case of success
+                    - HTTP 400 Bad Request Error code in case of error.
+        """
         serializer = SignupSerializer(data=request.data)
         if serializer.is_valid():
             user         = serializer.save()
