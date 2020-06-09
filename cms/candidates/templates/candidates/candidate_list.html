@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
 {% if candidates %}
 <h3>Welcome {{ user.username }}!</h3>
-<div class="articles">
+<div class="candidates">
     {% for candidate in candidates %}
-    <div class="article">
+    <div class="candidate">
         <h2>Name: {{ candidate.name }}</h2>
         <p>Email: {{ candidate.email }}</p>
         <p>Job Applied: {{ candidate.job_applied_to }}</p>
@@ -19,4 +20,5 @@
 <h3 class="not-found">Welcome {{ user.username }}!</h3>
 <h4 class="try-again">Currently there are no applicants!</h4>
 {% endif %}
+
 {% endblock %}

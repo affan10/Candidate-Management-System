@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
 {% if candidates %}
 <h1>Search Results</h1>
-<div class="articles">
+<div class="candidates">
     {% for candidate in candidates %}
-    <div class="article">
+    <div class="candidate">
         <h2>{{ candidate.name }}</h2>
         <p>{{ candidate.email }}</p>
         <p>{{ candidate.job_applied_to }}</p>
@@ -19,4 +20,5 @@
 <h1 class="not-found">Whoops! Your Search Returned Nothing</h1>
 <h3 class="try-again">Please Try Again</h3>
 {% endif %}
+
 {% endblock %}

@@ -1,12 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>
-    Login!
-</h1>
 
+<h1>Login!</h1>
 <form class="site-form" method="POST"> {% csrf_token %}
-<!--    action="/accounts/signup"-->
     {{ form.as_p }}
     {% if request.GET.next %}
         <input type="hidden" name="next" value="{{ request.GET.next }}">

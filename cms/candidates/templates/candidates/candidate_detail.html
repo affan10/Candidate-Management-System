@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="article-detail">
-    <div class="article">
+
+<div class="candidate-detail">
+    <div class="candidate">
         <h3>Details Of {{ candidate.name }} </h3>
         <p>Name: {{ candidate.name }}</p>
         <p>Email: {{ candidate.email }}</p>
@@ -23,9 +24,6 @@
             <button class="errorlist-delete del-candidate-btn">Delete Candidate</button>
         </a>
     </div>
-<!--    <form class="site-form delete-form" method="POST" action="{% url 'candidates:candidate-delete-view' candId=candidate.id %}">-->
-<!--        {% csrf_token %}-->
-<!--        <input type="submit" value="Delete Candidate">-->
-<!--    </form>-->
 </div>
+
 {% endblock %}
