@@ -102,10 +102,6 @@ div.wrapper h1, h3, h4, h5 {
 }
 
 .candidates {
-    /*display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 30px;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));*/
     margin-bottom: 5%;
 }
 
@@ -115,13 +111,6 @@ div.wrapper h1, h3, h4, h5 {
     position: relative;
     padding-bottom: 10px;
     margin-bottom: 1%;
-}
-
-.candidate img {
-    max-width: 100%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .candidate h2 {
@@ -137,19 +126,8 @@ div.wrapper h1, h3, h4, h5 {
     font-size: 0.9em;
 }
 
-.candidate .author {
-    padding: 10px;
-    background: #ff8a00;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    margin: 0;
-    color: #0f121f
-}
-
 .candidate-detail .candidate {
-    padding: 0;
-    border: none;
+    margin-top: 2%;
 }
 
 .candidate-detail .candidate img {
@@ -204,6 +182,7 @@ div.wrapper h1, h3, h4, h5 {
 
 .del-candidate-btn {
     padding: 10px;
+    margin-top: 1%;
 }
 
 .errorlist-delete:hover {
@@ -294,6 +273,7 @@ div.wrapper h1, h3, h4, h5 {
 
 .back-button.update-candidate-btn {
     margin-left: 1%;
+    margin-bottom: 1%;
 }
 
 .back-button:hover {
