@@ -33,9 +33,18 @@ class SignupSerializer(serializers.ModelSerializer):
         return user
 
 
-# Post_Save receiver functions perform a certain activity after a save event has occurred
-# These act like event listeners
 @receiver(post_save, sender=User)
 def create_auth_token(sender, instance=None, created=False, **kwargs):
+    """
+        - This Receiver function creates a token whenever a User object is saved to the database.
+        - Post_Save Receiver functions perform a certain activity after a save event has occurred.
+        - These act like event listeners or Receivers and receive Signals from a Sender.
+
+        :param sender: The event that caused this Receiver function to activate.
+        :param instance: The instance associated with that event.
+        :param created: Flag specifying if something got saved to the database.
+        :param kwargs: optional argument containing all arguments.
+        :return: just creates an associates a token with its corresponding user instance.
+    """
     if created:
         Token.objects.create(user=instance)
