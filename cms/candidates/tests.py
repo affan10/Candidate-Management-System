@@ -102,12 +102,11 @@ class CandidateAPITests(APITestCase):
             correct parameters are being sent by an authorized client.
         """
         # Creating test file
-        path = '/home/affan/qatask/cms/testCasesFileUploads/testUploadFile.docx'
+        path = 'testCasesFileUploads/testUploadFile.docx'
         file = open(path, 'w+')
         file.write('Python Java SQL\n')
         file.close()
         file = open(path, 'rb')
-
         token = Token.objects.get(user__username='test123')
         self.client.credentials(HTTP_AUTHORIZATION='Token ' + token.key)
         url  = reverse('candidates_api:candidates-list-and-post-apiurl')
@@ -120,7 +119,7 @@ class CandidateAPITests(APITestCase):
 
         # To check if the client tries to upload file with disallowed extensions
         # Only allowed extensions are .docx and .pdf
-        path = '/home/affan/qatask/cms/testCasesFileUploads/testUploadFile.xls'
+        path = 'testCasesFileUploads/testUploadFile.xls'
         file = open(path, 'w+')
         file.write('Python Java SQL\n')
         file.close()
