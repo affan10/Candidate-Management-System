@@ -2,7 +2,7 @@ asgiref==3.2.7
 Django==3.0.7
 djangorestframework==3.11.0
 docx2txt==0.8
-lxml==4.5.1
+lxml==4.6.2
 PyPDF3==1.0.1
 pytz==2020.1
 sqlparse==0.3.1
